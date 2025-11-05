@@ -188,6 +188,7 @@ class _NewsFormPageState extends State<NewsFormPage> {
                                     TextButton(
                                       child: const Text('OK'),
                                       onPressed: () {
+                                        _formKey.currentState!.reset();
                                         Navigator.pop(context);
                                       },
                                     ),
@@ -195,7 +196,6 @@ class _NewsFormPageState extends State<NewsFormPage> {
                                 );
                               },
                             );
-                            _formKey.currentState!.reset();
                           }
                         },
                         child: const Text(

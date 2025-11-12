@@ -2,6 +2,7 @@ import 'package:app/widgets/news_card.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/menu.dart';
 import 'package:app/screens/newslist_form.dart';
+import 'package:app/screens/news_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -61,15 +62,14 @@ class LeftDrawer extends StatelessWidget {
                 builder: (context) => const NewsFormPage()));
             },
           ),
-          // TODO: Buat ListTile baru untuk ke halaman melihat news
           ListTile(
             leading: const Icon(Icons.show_chart_rounded),
-            title: const Text('Show News'),
-            // Bagian redirection ke
+            title: const Text('News List'),
             onTap: () {
-              Navigator.pushReplacement(context, 
+              // Route to news list page
+              Navigator.push(context,
               MaterialPageRoute(
-                builder: (context) => MyHomePage()));
+                builder: (context) => const NewsEntryListPage()));
             },
           ),
         ],

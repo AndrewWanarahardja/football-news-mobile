@@ -25,7 +25,8 @@ jobs:
 
       - name: Get version from pubspec.yaml
         id: version
-        run: echo "::set-output name=version::$(grep "version:" pubspec.yaml | cut -c10-)"
+        run: VERSION$(grep "version:" pubspec.yaml | cut -c10-)
+          echo "NAME=$VALUE" >> $GITHUB_OUTPUT
 
       - name: Setup Java
         uses: actions/setup-java@v3

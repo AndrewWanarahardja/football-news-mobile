@@ -5,8 +5,7 @@ name: Release
 on:
   # Triggers the workflow on push events but only for the main branch
   push:
-    branches: 
-      - main
+    branches: [main]
 
 # Permissions needed for creating releases
 permissions:
@@ -25,8 +24,7 @@ jobs:
 
       - name: Get version from pubspec.yaml
         id: version
-        run: VERSION$(grep "version:" pubspec.yaml | cut -c10-)
-          echo "NAME=$VALUE" >> $GITHUB_OUTPUT
+        run: echo "::set-output name=version::$(grep "version:" pubspec.yaml | cut -c10-)"
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -34,8 +32,6 @@ jobs:
           distribution: "zulu"
           java-version: "17"
 
-      - name: accept andriod licenses
-        run: yes | flutter doctor --andriod-licenses
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:

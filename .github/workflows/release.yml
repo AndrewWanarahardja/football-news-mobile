@@ -33,6 +33,8 @@ jobs:
           distribution: "zulu"
           java-version: "17"
 
+      - name: accept andriod licenses
+        run: yes | flutter doctor --andriod-licenses
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
